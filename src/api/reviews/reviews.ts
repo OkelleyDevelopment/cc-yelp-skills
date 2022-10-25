@@ -1,8 +1,8 @@
 import { Request, Response, Router } from "express";
 import axios from "axios";
 
-import { Review } from "./interfaces";
-import { UserData } from "./interfaces";
+import { Review } from "./types";
+import { UserData } from "./types";
 
 // The router for our reviews endpoint
 export let router: Router = Router();
