@@ -7,6 +7,7 @@ export interface Review {
 }
 
 // Note this is the info needed to run the Google Vision API part
+// specifically the image_url
 export interface UserData {
   id: string;
   name: string;
