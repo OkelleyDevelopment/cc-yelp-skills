@@ -4,8 +4,7 @@ import express, { Application } from "express";
 import helmet from "helmet";
 
 import { router as PulseRouter } from "../api/pulse/pulse";
-
-// TODO: Write a logger function
+import { logger } from "../middleware/logger";
 
 const development = "development";
 const isDevelopment = process.env.NODE_ENV === development;
@@ -14,14 +13,18 @@ if (isDevelopment) {
   dotenv.config();
 }
 
+// Our base express server
 const server: Application = express();
 
+// Configure the server 
 server.use(cors());
-server.use(helmet());
+server.use(helmet()); // provides some extra security 
 server.use(express.json());
 
-// TODO: Use the logger middleware here
+// Middlewares 
+server.use(logger) // log requests to our server
 
 // Allow us to test the server is active without needing to see complex data
 server.use("/", PulseRouter);
+
 export default server;
