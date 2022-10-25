@@ -3,8 +3,9 @@ import cors from "cors";
 import express, { Application } from "express";
 import helmet from "helmet";
 
-import { router as PulseRouter } from "../api/pulse/pulse";
 import { logger } from "../middleware/logger";
+import { router as PulseRouter } from "../api/pulse/pulse";
+import { router as ReviewRouter } from "../api/reviews/reviews";
 
 const development = "development";
 const isDevelopment = process.env.NODE_ENV === development;
@@ -26,5 +27,6 @@ server.use(logger) // log requests to our server
 
 // Allow us to test the server is active without needing to see complex data
 server.use("/", PulseRouter);
+server.use('/reviews/', ReviewRouter)
 
 export default server;
