@@ -5,7 +5,7 @@ import { NextFunction, Request, Response } from "express"
 export function logger(req: Request, _res: Response, next: NextFunction) {
   console.log(
     `[${new Date().toISOString()}] ${req.method} to ${req.url} from 
-                ${req.get("origin")} req body ${req.body}`,
+                ${req.get("origin")}`,
     { ...req.headers }
   );
   next();
