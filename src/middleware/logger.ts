@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express"
+import { NextFunction, Request, Response } from "express";
 
-// Simple logging function to allow us to set what requests are 
+// Simple logging function to allow us to set what requests are
 // being processed
 export function logger(req: Request, _res: Response, next: NextFunction) {
   console.log(
