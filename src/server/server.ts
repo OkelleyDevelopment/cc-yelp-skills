@@ -17,16 +17,16 @@ if (isDevelopment) {
 // Our base express server
 const server: Application = express();
 
-// Configure the server 
+// Configure the server
 server.use(cors());
-server.use(helmet()); // provides some extra security 
+server.use(helmet()); // provides some extra security
 server.use(express.json());
 
-// Middlewares 
-server.use(logger) // log requests to our server
+// Middlewares
+server.use(logger); // log requests to our server
 
 // Allow us to test the server is active without needing to see complex data
 server.use("/", PulseRouter);
-server.use('/reviews/', ReviewRouter)
+server.use("/reviews/", ReviewRouter);
 
 export default server;
